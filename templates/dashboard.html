@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Dashboard - Dashboard</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}"> -->
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f2f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* FontAwesome icons */
+        .fa-twitter {
+            margin-right: 8px;
+        }
+
+        /* Tweet list styles */
+        .tweet-list {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .tweet-list li {
+            border-bottom: 1px solid #ccc;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        .tweet-list li:last-child {
+            border-bottom: none;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-C1jBgK2aG1C9b+l7YqO5Y0EtAvyRyC9tYyt8VMGLV7hxkK4k6jI/l0vSd9IqE+JLk4AnHgaKBl5DxShS9C+lQQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header>
+        <h1>Social Media Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <h2>Welcome, {{ user.name }}</h2>
+        <h3>Your Latest Tweets:</h3>
+        <ul class="tweet-list">
+            {% for tweet in tweets %}
+            <li><i class="fab fa-twitter"></i> {{ tweet.text }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Social Media Dashboard</p>
+    </footer>
+    
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
